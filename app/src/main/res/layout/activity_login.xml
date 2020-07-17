@@ -11,19 +11,40 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".ui.login.LoginActivity">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="24dp"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
+    <Button
+        android:id="@+id/register"
+        android:layout_width="329dp"
+        android:layout_height="41dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="100dp"
+        android:enabled="false"
+        android:text="@string/action_register"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="329dp"
+        android:layout_height="41dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="150dp"
+        android:enabled="false"
+        android:text="@string/action_sign_in_short"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/password"
@@ -41,22 +62,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:enabled="false"
-        android:text="@string/action_sign_in"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/loading"
