@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.login.LoginViewModel;
 import com.example.togethersujung2020.ui.login.LoginViewModelFactory;
+import com.example.togethersujung2020.ui.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -115,6 +117,16 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+            }
+        });
+
+        Button button1 = (Button) findViewById(R.id.login) ; //로그인 버튼을 누르면 메인화면으로 이동하는 코드
+        button1.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class) ;
+
+                startActivity(intent) ;
             }
         });
     }
