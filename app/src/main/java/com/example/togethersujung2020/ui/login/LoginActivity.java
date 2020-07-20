@@ -24,9 +24,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
 import com.example.togethersujung2020.ui.login.LoginViewModel;
 import com.example.togethersujung2020.ui.login.LoginViewModelFactory;
 import com.example.togethersujung2020.ui.main.MainActivity;
+import com.example.togethersujung2020.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -125,6 +127,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class) ;
+
+                startActivity(intent) ;
+            }
+        });
+
+        Button register = (Button) findViewById(R.id.register) ; //회원가입 버튼 누르면 화면 이동
+        register.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class) ;
 
                 startActivity(intent) ;
             }
