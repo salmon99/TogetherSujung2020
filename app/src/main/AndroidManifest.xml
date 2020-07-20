@@ -19,6 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity" />
+        <activity android:name=".ui.freeBoard.FreeActivity" />
+        <activity android:name=".ui.helpBoard.HelpActivity" />
+        <activity android:name=".ui.housingBoard.HousingActivity" />
+        <activity android:name=".ui.tradingBoard.TradeActivity" />
+        <activity android:name=".ui.infoBoard.InfoActivity" />
+        <activity android:name=".ui.ttingBoard.TtingActivity" />
+
     </application>
 
 </manifest>
