@@ -10,4 +10,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="free_board">자유</string>
+    <string name="info_board">정보</string>
+    <string name="housing_board">주거</string>
+    <string name="tting_board">띵</string>
+    <string name="trading_board">거래</string>
+    <string name="help_board">도움</string>
 </resources>
