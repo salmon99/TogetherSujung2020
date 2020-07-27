@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.togethersujung2020.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class FreeListViewAdapter extends BaseAdapter {
@@ -44,6 +46,7 @@ public class FreeListViewAdapter extends BaseAdapter {
         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1) ;
         TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
+        TextView commentTextView = (TextView) convertView.findViewById(R.id.commentNumber1);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         FreeListViewItem listViewItem = listViewItemList.get(position);
@@ -52,6 +55,7 @@ public class FreeListViewAdapter extends BaseAdapter {
         iconImageView.setImageDrawable(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         descTextView.setText(listViewItem.getDesc());
+        commentTextView.setText(listViewItem.getComment());
 
         return convertView;
     }
@@ -69,12 +73,13 @@ public class FreeListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String title, String desc) {
+    public void addItem(Drawable icon, String title, String desc,String comment) {
         FreeListViewItem item = new FreeListViewItem();
 
         item.setIcon(icon);
         item.setTitle(title);
         item.setDesc(desc);
+        item.setComment(comment);
 
         listViewItemList.add(item);
     }
