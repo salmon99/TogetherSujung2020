@@ -1,19 +1,22 @@
 package com.example.togethersujung2020.ui.freeBoard;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
+import com.example.togethersujung2020.ui.main.MainActivity;
 
 public class FreeActivity extends AppCompatActivity{
     @Override
@@ -57,31 +60,27 @@ public class FreeActivity extends AppCompatActivity{
             }
         }) ;
     }
-    /**
-     * Action Bar에 메뉴를 생성한다.
-     * @param menu
-     * @return
-     */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.listmenu_newpost, menu);
+    public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
+        ActionBar ab = getSupportActionBar() ;
+        ab.setTitle("같이수정 자유게시판") ;
+        getMenuInflater().inflate(R.menu.freeactionbar_actions, menu);
         return true;
     }
-    /**
-     * 메뉴 아이템을 클릭했을 때 발생되는 이벤트...
-     * @param item
-     * @return
-     */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if( id == R.id.newPost ){
-            Toast.makeText(FreeActivity.this, "새 글 등록 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
-            return true;
+    public boolean onOptionsItemSelected(MenuItem item) { //액션바 실행하기
+        switch (item.getItemId()){
+            case R.id.newPost:
+                Intent newPost = new Intent(this,FreeWritePostActivity.class);
+                startActivity(newPost);
+                Toast.makeText(FreeActivity.this, "새 글 등록 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.settings:
+                Toast.makeText(FreeActivity.this, "환경설정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TogetherSujung2020</string>
+    <string name="app_name">같이수정</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -16,4 +16,6 @@
     <string name="tting_board">띵</string>
     <string name="trading_board">거래</string>
     <string name="help_board">도움</string>
+    <string name="title">제목</string>
+    <string name="contents">내용</string>
 </resources>
