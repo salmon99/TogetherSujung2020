@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
 import com.example.togethersujung2020.ui.main.MainActivity;
+import com.example.togethersujung2020.ui.main.ProfileActivity;
 
 public class FreeActivity extends AppCompatActivity{
     @Override
@@ -75,8 +76,10 @@ public class FreeActivity extends AppCompatActivity{
                 startActivity(newPost);
                 Toast.makeText(FreeActivity.this, "새 글 등록 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.settings:
-                Toast.makeText(FreeActivity.this, "환경설정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+            case R.id.profile:
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
+                Toast.makeText(FreeActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
