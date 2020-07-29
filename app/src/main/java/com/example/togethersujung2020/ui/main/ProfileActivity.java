@@ -30,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         TabLayout tab = findViewById(R.id.profile_tab);
         tab.setupWithViewPager(vp);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
@@ -45,6 +46,10 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent settings = new Intent(this, SettingsActivity.class);
                 startActivity(settings);
                 Toast.makeText(this, "환경설정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home: //뒤로가기 버튼 클릭시 동작
+                finish();
+                Toast.makeText(this, "뒤로가기 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

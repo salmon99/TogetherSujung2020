@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/profileimage"
@@ -43,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="성북구/강북구"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textSize="20sp"
             android:gravity="center_horizontal" />
 
@@ -51,8 +52,8 @@
             android:id="@+id/profilename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="김수정adfasadfaf"
-            android:textColor="#000000"
+            android:text="김수정1234"
+            android:textColor="#ffffff"
             android:textSize="30sp"
             android:gravity="center_horizontal"
             app:layout_constraintStart_toEndOf="@+id/profileimage"
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:textColor="#ffffff"
             android:text="20205748@sungshin.ac.kr"
             />
 
