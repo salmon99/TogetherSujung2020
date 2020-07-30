@@ -18,6 +18,8 @@ import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
 import com.example.togethersujung2020.ui.main.MainActivity;
 import com.example.togethersujung2020.ui.main.ProfileActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FreeActivity extends AppCompatActivity{
     @Override
