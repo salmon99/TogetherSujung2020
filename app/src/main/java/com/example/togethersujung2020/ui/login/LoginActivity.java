@@ -136,8 +136,9 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class) ;
-
+                Intent intent = new Intent(
+                        getApplicationContext(),
+                        RegisterActivity.class);
                 startActivity(intent) ;
             }
         });
@@ -152,4 +153,5 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
 }
