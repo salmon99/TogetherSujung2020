@@ -16,4 +16,6 @@
     <string name="tting_board">띵</string>
     <string name="trading_board">거래</string>
     <string name="help_board">도움</string>
+    <string name="notification">알림창</string>
+    <string name="StringValue">이미지가 열리지 않습니다.</string>
 </resources>
