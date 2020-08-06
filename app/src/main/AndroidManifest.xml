@@ -26,9 +26,19 @@
         <activity android:name=".ui.infoBoard.InfoActivity" />
         <activity android:name=".ui.ttingBoard.TtingActivity" />
         <activity android:name=".ui.register.RegisterActivity" />
+<<<<<<< HEAD
         <activity android:name=".ui.freeBoard.FreeWritePostActivity"/>
         <activity android:name=".ui.main.SettingsActivity"/>
         <activity android:name=".ui.main.ProfileActivity"/>
+=======
+        <activity android:name=".ui.register.Registersub1" />
+        <activity android:name=".ui.register.Registersub2" />
+        <activity android:name=".ui.register.Registersub3" />
+        <activity android:name=".ui.register.RegisterEmail1" />
+        <activity android:name=".ui.register.RegisterEmail2" />
+
+
+>>>>>>> origin/yoon
 
     </application>
 
