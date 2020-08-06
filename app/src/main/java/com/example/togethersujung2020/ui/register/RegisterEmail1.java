@@ -22,9 +22,9 @@ public class RegisterEmail1 extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+        setContentView(R.layout.activity_register_email); //없는 레이아웃 xml 파일을 참조하려고 해서 수정해봤습니다
 
-        authEmail = (EditText) findViewById(R.id.authEmail);
+        authEmail = (EditText) findViewById(R.id.editTextTextEmailAddress2); //없는 id를 참조하려고 해서 있는 걸로 수정해봤습니다
         authBtn = (Button) findViewById(R.id.authBtn);
         authBtn.setOnClickListener(this);
 
@@ -39,7 +39,8 @@ public class RegisterEmail1 extends AppCompatActivity implements View.OnClickLis
             case R.id.authBtn:
 
                 dialog = LayoutInflater.from(this);
-                dialogLayout = dialog.inflate(R.layout.auth_dialog, null); // LayoutInflater를 통해 XML에 정의된 Resource들을 View의 형태로 반환 시켜 줌
+                dialogLayout = dialog.inflate(R.layout.activity_register_password, null); // LayoutInflater를 통해 XML에 정의된 Resource들을 View의 형태로 반환 시켜 줌
+                //inflate 할 xml 파일이 없는 것 같습니다
                 authDialog = new Dialog(this); //Dialog 객체 생성
                 authDialog.setContentView(dialogLayout); //Dialog에 inflate한 View를 탑재 하여줌
                 authDialog.setCanceledOnTouchOutside(false); //Dialog 바깥 부분을 선택해도 닫히지 않게 설정함.

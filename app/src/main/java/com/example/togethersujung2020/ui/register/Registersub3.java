@@ -27,9 +27,9 @@ public class Registersub3 extends AppCompatActivity {
                         LoginActivity.class); // 다음 넘어갈 클래스 지정
                 startActivity(intent); // 다음 화면으로 넘어간다
 
-                button3.setOnClickListener {
-                    finish()    // 액티비티 종료(로그아웃)
-                }
+           //     button3.setOnClickListener {
+             //       finish();    // 액티비티 종료(로그아웃)
+              //  } //todo 여기 오류나서 주석처리 해뒀습니다
             }
         });
     }
