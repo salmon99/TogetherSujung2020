@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -18,6 +20,9 @@ import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
 import com.example.togethersujung2020.ui.main.MainActivity;
 import com.example.togethersujung2020.ui.main.ProfileActivity;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,7 +34,7 @@ public class FreeActivity extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼 추가
 
         ListView listview ;
-        FreeListViewAdapter adapter;
+        final FreeListViewAdapter adapter;
 
         // Adapter 생성
         adapter = new FreeListViewAdapter() ;
@@ -37,8 +42,6 @@ public class FreeActivity extends AppCompatActivity{
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
-
-        //todo: 데이터를 데이터베이스로부터 받아와야함
 
         // 첫 번째 아이템 추가.
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.profile),
@@ -49,6 +52,37 @@ public class FreeActivity extends AppCompatActivity{
         // 세 번째 아이템 추가.
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.user2),
                 "제목!!", "글내용어쩌구","3") ;
+
+        DatabaseReference database=FirebaseDatabase.getInstance().getReference();
+        database.child("freeboard").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                FreeBoard board = snapshot.getValue(FreeBoard.class);
+                adapter.addItem(board.getTitle(),board.getContent());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {

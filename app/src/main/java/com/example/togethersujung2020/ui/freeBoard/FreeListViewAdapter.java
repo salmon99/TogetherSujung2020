@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.example.togethersujung2020.R;
 
 import org.w3c.dom.Text;
@@ -75,11 +77,29 @@ public class FreeListViewAdapter extends BaseAdapter {
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
     public void addItem(Drawable icon, String title, String desc,String comment) {
         FreeListViewItem item = new FreeListViewItem();
-
         item.setIcon(icon);
         item.setTitle(title);
         item.setDesc(desc);
         item.setComment(comment);
+
+        listViewItemList.add(item);
+    }
+
+    public void addItem(String title, String desc) {
+        FreeListViewItem item = new FreeListViewItem();
+        item.setIcon();
+        item.setTitle(title);
+        item.setDesc(desc);
+        item.setComment("0");
+
+        listViewItemList.add(item);
+    }
+    public void addItem(){
+        FreeListViewItem item = new FreeListViewItem();
+        item.setIcon();
+        item.setTitle("");
+        item.setDesc("");
+        item.setComment("0");
 
         listViewItemList.add(item);
     }
