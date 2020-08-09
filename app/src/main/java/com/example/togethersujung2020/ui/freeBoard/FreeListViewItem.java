@@ -12,6 +12,7 @@ public class FreeListViewItem {
     private String titleStr ;
     private String descStr ;
     private String commentNum;
+    private String postkey;
 
     public void setIcon(Drawable icon) {
         iconDrawable = icon ;
@@ -22,6 +23,8 @@ public class FreeListViewItem {
         descStr = desc ;
     }
     public void setComment(String comment){commentNum=comment;}
+    public void setKey(String key){postkey=key;}
+
     public Drawable getIcon() {
         return this.iconDrawable ;
     }
@@ -32,4 +35,5 @@ public class FreeListViewItem {
         return this.descStr ;
     }
     public String getComment(){return this.commentNum;}
+    public String getKey(){return this.postkey;}
 }

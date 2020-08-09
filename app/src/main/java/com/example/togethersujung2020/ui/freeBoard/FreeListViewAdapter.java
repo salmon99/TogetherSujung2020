@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.togethersujung2020.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -81,16 +83,18 @@ public class FreeListViewAdapter extends BaseAdapter {
         item.setTitle(title);
         item.setDesc(desc);
         item.setComment(comment);
+        item.setKey("");
 
         listViewItemList.add(item);
     }
 
-    public void addItem(String title, String desc) {
+    public void addItem(String title, String desc,String key) {
         FreeListViewItem item = new FreeListViewItem();
         item.setIcon();
         item.setTitle(title);
         item.setDesc(desc);
         item.setComment("0");
+        item.setKey(key);
 
         listViewItemList.add(item);
     }
@@ -100,6 +104,7 @@ public class FreeListViewAdapter extends BaseAdapter {
         item.setTitle("");
         item.setDesc("");
         item.setComment("0");
+        item.setKey("");
 
         listViewItemList.add(item);
     }
