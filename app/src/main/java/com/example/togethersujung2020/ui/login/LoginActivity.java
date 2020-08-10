@@ -1,4 +1,4 @@
-package com.example.togethersujung2020.ui.login;
+/*package com.example.togethersujung2020.ui.login;
 
 import android.app.Activity;
 
@@ -25,6 +25,9 @@ import android.widget.Toast;
 
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
+import com.example.togethersujung2020.ui.login.LoggedInUserView;
+import com.example.togethersujung2020.ui.login.LoginFormState;
+import com.example.togethersujung2020.ui.login.LoginResult;
 import com.example.togethersujung2020.ui.login.LoginViewModel;
 import com.example.togethersujung2020.ui.login.LoginViewModelFactory;
 import com.example.togethersujung2020.ui.main.MainActivity;
@@ -154,3 +157,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
+
+ */
+

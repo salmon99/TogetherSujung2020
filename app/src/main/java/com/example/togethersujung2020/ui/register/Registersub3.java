@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.login.LoginActivity;
+import com.example.togethersujung2020.ui.login.Login;
 
 public class Registersub3 extends AppCompatActivity {
     @Override
@@ -24,7 +24,7 @@ public class Registersub3 extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(
                         getApplicationContext(), // 현재 화면의 제어권자
-                        LoginActivity.class); // 다음 넘어갈 클래스 지정
+                        Login.class); // 다음 넘어갈 클래스 지정
                 startActivity(intent); // 다음 화면으로 넘어간다
 
            //     button3.setOnClickListener {

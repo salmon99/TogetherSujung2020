@@ -1,4 +1,4 @@
-package com.example.togethersujung2020.ui.login;
+/*package com.example.togethersujung2020.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -68,3 +68,5 @@ public class LoginViewModel extends ViewModel {
         return password != null && password.trim().length() > 5;
     }
 }
+
+ */
