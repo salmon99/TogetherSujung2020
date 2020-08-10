@@ -44,16 +44,6 @@ public class FreeActivity extends AppCompatActivity{
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
 
-        // 첫 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.profile),
-                "제목어쩌구", "뭔가의 내용","5") ;
-        // 두 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.user),
-                "제목제목", "글내용 어쩌구","0") ;
-        // 세 번째 아이템 추가.
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.user2),
-                "제목!!", "글내용어쩌구","3") ;
-
         final DatabaseReference database=FirebaseDatabase.getInstance().getReference();
         database.child("freeboard").addChildEventListener(new ChildEventListener() {
             @Override
@@ -92,7 +82,6 @@ public class FreeActivity extends AppCompatActivity{
 
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;
-                Drawable iconDrawable = item.getIcon() ;
                 String commentNumber = item.getComment();
                 String key=item.getKey();
 
@@ -101,7 +90,7 @@ public class FreeActivity extends AppCompatActivity{
                 Intent postview = new Intent(FreeActivity.this,FreePostViewActivity.class);
                 postview.putExtra("title",titleStr);
                 postview.putExtra("content",descStr);
-                postview.putExtra("commentNum",commentNumber); //todo 사진도 불러와야 함
+                postview.putExtra("commentNum",commentNumber);
                 postview.putExtra("postkey",key);
                 startActivity(postview);
             }
