@@ -34,6 +34,7 @@
         <activity android:name=".ui.register.Registersub3" />
         <activity android:name=".ui.register.RegisterEmail1" />
         <activity android:name=".ui.register.RegisterEmail2" />
+        <activity android:name=".ui.freeBoard.FreePostViewActivity"/>
     </application>
 
 </manifest>

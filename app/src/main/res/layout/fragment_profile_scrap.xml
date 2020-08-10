@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.profile_scrap">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listview_scrap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
         android:background="@color/colorPrimaryDark"/>
 
 </FrameLayout>
