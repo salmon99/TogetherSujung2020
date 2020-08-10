@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/linearLayout0"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/settings_idchange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="내 정보 변경"
-            android:textColor="#000000"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/profile_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="현재 지역 변경"/>
-
-        <Button
-            android:id="@+id/profile_photo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="프로필 사진 변경"/>
-        <Button
-            android:id="@+id/profile_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="닉네임 변경"/>
-        <Button
-            android:id="@+id/profile_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="비밀번호 변경"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1">
-    <TextView
-        android:id="@+id/settings_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="로그인 관리"
-        android:textColor="#000000"
-        android:textSize="30sp" />
-        <Button
-            android:id="@+id/profile_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="로그아웃"/>
-        <Button
-            android:id="@+id/profile_exit"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_idchange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="내 정보 변경"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/profile_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="현재 지역 변경" />
+
+            <Button
+                android:id="@+id/profile_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="프로필 사진 변경" />
+
+            <Button
+                android:id="@+id/profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="닉네임 변경" />
+
+            <Button
+                android:id="@+id/profile_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="비밀번호 변경" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="회원 탈퇴"/>
-    </LinearLayout>
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="로그인 관리"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/profile_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="로그아웃" />
+
+            <Button
+                android:id="@+id/profile_exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="회원 탈퇴" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
