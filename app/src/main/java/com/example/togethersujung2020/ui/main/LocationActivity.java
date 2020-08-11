@@ -1,7 +1,6 @@
 package com.example.togethersujung2020.ui.main;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -17,7 +16,7 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_location);
 
-        final RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
+        final RadioGroup rg = findViewById(R.id.radioGroup);
         Button changebtn = findViewById(R.id.changeLocation);
         changebtn.setOnClickListener(new View.OnClickListener() {
             @Override

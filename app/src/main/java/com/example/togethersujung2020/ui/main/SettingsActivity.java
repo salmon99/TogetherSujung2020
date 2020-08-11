@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.login.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsActivity extends AppCompatActivity {
     private final int GET_GALLERY_IMAGE = 200;
@@ -27,8 +29,8 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼 추가
 
-        Button namebtn = (Button) findViewById(R.id.profile_name);
-        namebtn.setOnClickListener(new Button.OnClickListener() {
+        Button nameBtn = findViewById(R.id.profile_name);
+        nameBtn.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -37,8 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Button locabtn = (Button) findViewById(R.id.profile_location);
-        locabtn.setOnClickListener(new Button.OnClickListener() {
+        Button locaBtn = findViewById(R.id.profile_location);
+        locaBtn.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -47,8 +49,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Button passwdbtn = (Button) findViewById(R.id.profile_password);
-        passwdbtn.setOnClickListener(new Button.OnClickListener() {
+        Button passwdBtn = findViewById(R.id.profile_password);
+        passwdBtn.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -57,8 +59,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Button changepf = (Button)findViewById(R.id.profile_photo);
-        changepf.setOnClickListener(new Button.OnClickListener() {
+        Button changePf = findViewById(R.id.profile_photo);
+        changePf.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 // 기본 갤러리로 접근
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -67,7 +69,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Button logOut = (Button)findViewById(R.id.profile_logout);
+        Button logOut = findViewById(R.id.profile_logout);
         logOut.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
@@ -90,7 +92,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        Button exit = (Button)findViewById(R.id.profile_exit);
+        Button exit = findViewById(R.id.profile_exit);
         exit.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
@@ -120,12 +122,12 @@ public class SettingsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         setContentView(R.layout.activity_profile);
 
-        ImageView prfile = (ImageView) findViewById(R.id.profile);
+        ImageView profile = findViewById(R.id.profile);
 
         if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             Uri selectedImageUri = data.getData();
-            prfile.setImageURI(selectedImageUri);
+            profile.setImageURI(selectedImageUri);
 
         }
 

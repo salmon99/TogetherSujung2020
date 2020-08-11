@@ -146,12 +146,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.profile:
+            case R.id.action_profile:
                 Intent profile1 = new Intent(this, ProfileActivity.class);
                 startActivity(profile1);
                 Toast.makeText(MainActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.notice:
+            case R.id.action_notice:
                 Intent notice = new Intent(this, NoticeActivity.class);
                 startActivity(notice);
                 Toast.makeText(MainActivity.this, "알림창 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();

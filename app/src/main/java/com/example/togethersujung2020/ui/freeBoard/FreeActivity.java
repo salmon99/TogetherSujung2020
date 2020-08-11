@@ -64,6 +64,7 @@ public class FreeActivity extends AppCompatActivity{
             }
         }) ;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
         ActionBar ab = getSupportActionBar() ;
