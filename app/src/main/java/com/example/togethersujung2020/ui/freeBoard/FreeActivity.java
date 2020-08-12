@@ -72,7 +72,9 @@ public class FreeActivity extends AppCompatActivity{
             public void onCancelled(@NonNull DatabaseError error) {
                 adapter.notifyDataSetChanged();
             }
-        });
+        }); //글 목록 데이터베이스와 리스트뷰 연결
+
+
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
