@@ -186,21 +186,32 @@ private Context mContext;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //액션바 실행하기
+        final DatabaseReference database= FirebaseDatabase.getInstance().getReference();
+        final String userId ="김수정";
+        Intent postview = this.getIntent();
+        String key1="";
+        String title1="";
+        String content1="";
+        key1 = postview.getStringExtra("postkey");
+        title1 = postview.getStringExtra("title");
+        content1 = postview.getStringExtra("content");
         switch (item.getItemId()) { //todo 스크랩, 삭제, 수정 기능 목록에서 버튼 만들어서 사용하기
             case R.id.ScrapPost:
+                database.getRef().child(userId).child("scrap").push().setValue(key1);
                 Toast.makeText(FreePostViewActivity.this, "글 스크랩 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.RemovePost:
-                Intent postview = this.getIntent();
-                String content1 = postview.getStringExtra("content");
-                String key1 = postview.getStringExtra("postkey");
-                final DatabaseReference database= FirebaseDatabase.getInstance().getReference();
                 final Query query = database.child("freeboard").child(key1).orderByChild("content").equalTo(content1);
                 query.getRef().removeValue();
                 finish();
                 Toast.makeText(FreePostViewActivity.this, "글 삭제 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.ModifyPost:
+                Intent modifyPost = new Intent(this,FreeModifyPostActivity.class);
+                modifyPost.putExtra("title_before",title1);
+                modifyPost.putExtra("content_before",content1);
+                modifyPost.putExtra("postkey",key1);
+                startActivity(modifyPost);
                 Toast.makeText(FreePostViewActivity.this, "글 수정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case android.R.id.home: //뒤로가기 버튼 클릭시 동작

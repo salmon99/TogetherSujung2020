@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FreeWritePostActivity extends AppCompatActivity {
+    final String userId ="김수정";
     EditText editTitle;
     EditText editContent;
     FreeListViewAdapter adapter;
@@ -49,7 +50,7 @@ public class FreeWritePostActivity extends AppCompatActivity {
             case R.id.recordPost: //등록 버튼 클릭시 동작
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                 FreeBoard board =new FreeBoard(editTitle.getText().toString(),editContent.getText().toString());
-                database.child("freeboard").push().setValue(board);
+                database.getRef().child("freeboard").push().setValue(board);
                 finish();
                 Toast.makeText(this, "새로운 글을 등록했습니다.", Toast.LENGTH_SHORT).show();
             default:

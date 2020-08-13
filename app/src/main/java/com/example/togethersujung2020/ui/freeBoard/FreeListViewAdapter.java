@@ -83,4 +83,8 @@ public class FreeListViewAdapter extends BaseAdapter {
 
         listViewItemList.add(item);
     }
+
+    public void clear(){
+        listViewItemList.clear();
+    }
 }
