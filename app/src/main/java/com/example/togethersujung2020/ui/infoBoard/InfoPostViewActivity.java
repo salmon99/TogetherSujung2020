@@ -1,54 +1,49 @@
-package com.example.togethersujung2020.ui.freeBoard;
+package com.example.togethersujung2020.ui.infoBoard;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.main.MainActivity;
-import com.example.togethersujung2020.ui.main.ProfileActivity;
+import com.example.togethersujung2020.ui.freeBoard.FreeComment;
+import com.example.togethersujung2020.ui.freeBoard.FreeCommentListViewAdapter;
+import com.example.togethersujung2020.ui.freeBoard.FreeCommentListViewItem;
+import com.example.togethersujung2020.ui.freeBoard.FreeModifyPostActivity;
+import com.example.togethersujung2020.ui.freeBoard.FreePostViewActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.List;
 
-public class FreePostViewActivity extends AppCompatActivity {
-final String userId ="김수정";
-EditText editComment;
-private ListView listView;
-private FreeCommentListViewAdapter adapter;
+public class InfoPostViewActivity extends AppCompatActivity {
+    final String userId ="김수정";
+    EditText editComment;
+    private ListView listView;
+    private FreeCommentListViewAdapter adapter;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mReference;
+    private ChildEventListener mChild;
 
-private FirebaseDatabase mDatabase;
-private DatabaseReference mReference;
-private ChildEventListener mChild;
-//private ArrayAdapter<String> adapter;
-List<Object> Array = new ArrayList<Object>();
-ArrayList<FreeCommentListViewItem> commentItems=new ArrayList<>();
+    List<Object> Array = new ArrayList<Object>();
+    ArrayList<FreeCommentListViewItem> commentItems=new ArrayList<>();
+
     public class Scrap {
         public String title;
         public String board;
@@ -61,7 +56,7 @@ ArrayList<FreeCommentListViewItem> commentItems=new ArrayList<>();
             this.board = board;
         }
     }
-private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +65,6 @@ private Context mContext;
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); //입력창이 자판에 가리지 않도록 하기
 
         adapter = new FreeCommentListViewAdapter(); //여기서부터 댓글 리스트뷰
-        //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());
 
         listView = (ListView) findViewById(R.id.listview_comment);
         listView.setAdapter(adapter);
@@ -85,7 +79,6 @@ private Context mContext;
         Intent postview = this.getIntent();
         final String title1 = postview.getStringExtra("title");
         final String content1 = postview.getStringExtra("content");
-  //      String commentNum1 = postview.getStringExtra("commentNum");
         final String key1 = postview.getStringExtra("postkey");
 
         title.setText(title1);
@@ -103,18 +96,18 @@ private Context mContext;
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference();
                 FreeComment comment =new FreeComment(editComment.getText().toString());
 
-                Query query = database.child("freeboard").child(key1).orderByChild("content").equalTo(content1);
+                Query query = database.child("infoboard").child(key1).orderByChild("content").equalTo(content1);
                 query.getRef().push().setValue(comment); //댓글 데이터베이스에 추가
-                Scrap scrap = new Scrap(editComment.getText().toString(),title1); //내가 쓴 댓글
+                InfoPostViewActivity.Scrap scrap = new InfoPostViewActivity.Scrap(editComment.getText().toString(),title1); //내가 쓴 댓글
                 database.getRef().child(userId).child("myComment").push().setValue(scrap);
-                Toast.makeText(FreePostViewActivity.this, "새 댓글을 등록했습니다.", Toast.LENGTH_SHORT).show();
-              //  adapter.addItem(editComment.getText().toString()); //adapter에 댓글 추가
+                Toast.makeText(InfoPostViewActivity.this, "새 댓글을 등록했습니다.", Toast.LENGTH_SHORT).show();
+
                 editComment.setText(null); //댓글 입력창 초기화
                 adapter.notifyDataSetChanged();
             }
         });
 
-        mReference = mDatabase.getReference("freeboard").child(key1); // 변경값을 확인할 child 이름
+        mReference = mDatabase.getReference("infoboard").child(key1); // 변경값을 확인할 child 이름
         mReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) { //나는 이게 진짜 왜 돌아가는지 모르겠다...
@@ -192,7 +185,7 @@ private Context mContext;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
         ActionBar ab = getSupportActionBar() ;
-        ab.setTitle("같이수정 자유게시판") ;
+        ab.setTitle("같이수정 정보게시판") ;
         getMenuInflater().inflate(R.menu.freepostview_actions, menu);
         return true;
     }
@@ -209,23 +202,23 @@ private Context mContext;
         content1 = postview.getStringExtra("content");
         switch (item.getItemId()) { //todo 스크랩, 삭제, 수정 기능 목록에서 버튼 만들어서 사용하기
             case R.id.ScrapPost:
-                Scrap scrap = new Scrap(title1,"자유");
+                InfoPostViewActivity.Scrap scrap = new InfoPostViewActivity.Scrap(title1,"정보");
                 database.getRef().child(userId).child("scrap").push().setValue(scrap); //게시글 키 push
-                Toast.makeText(FreePostViewActivity.this, "글 스크랩 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoPostViewActivity.this, "글 스크랩 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.RemovePost:
-                final Query query = database.child("freeboard").child(key1).orderByChild("content").equalTo(content1);
+                final Query query = database.child("infoboard").child(key1).orderByChild("content").equalTo(content1);
                 query.getRef().removeValue();
                 finish();
-                Toast.makeText(FreePostViewActivity.this, "글 삭제 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoPostViewActivity.this, "글 삭제 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.ModifyPost:
-                Intent modifyPost = new Intent(this,FreeModifyPostActivity.class);
+                Intent modifyPost = new Intent(this, InfoModifyPostActivity.class);
                 modifyPost.putExtra("title_before",title1);
                 modifyPost.putExtra("content_before",content1);
                 modifyPost.putExtra("postkey",key1);
                 startActivity(modifyPost);
-                Toast.makeText(FreePostViewActivity.this, "글 수정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoPostViewActivity.this, "글 수정 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             case android.R.id.home: //뒤로가기 버튼 클릭시 동작
                 finish();

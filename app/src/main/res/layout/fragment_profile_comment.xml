@@ -6,7 +6,7 @@
     tools:context=".ui.main.profile_comment">
 
     <ListView
-        android:id="@+id/listview_comment"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"/>

@@ -4,33 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
-import com.example.togethersujung2020.ui.freeBoard.FreeWritePostActivity;
 import com.google.android.material.tabs.TabLayout;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
+    ViewPager vp;
+    VPAdapter adapter = new VPAdapter(getSupportFragmentManager());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        ViewPager vp = findViewById(R.id.viewpager); //화면을 슬라이드 해서 넘기는 뷰페이저
-        VPAdapter adapter = new VPAdapter(getSupportFragmentManager());
-        vp.setAdapter(adapter);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼
+        vp = findViewById(R.id.viewpager); //화면을 슬라이드 해서 넘기는 뷰페이저
 
         //뷰페이저와 탭 연동
         TabLayout tab = findViewById(R.id.profile_tab);
         tab.setupWithViewPager(vp);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼
+        vp.setAdapter(adapter);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
@@ -38,6 +40,11 @@ public class ProfileActivity extends AppCompatActivity {
         ab.setTitle("프로필 정보") ;
         getMenuInflater().inflate(R.menu.profile_actions, menu);
         return true;
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //액션바 실행하기
@@ -54,5 +61,8 @@ public class ProfileActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    public void refresh(){
+        adapter.notifyDataSetChanged();
     }
 }

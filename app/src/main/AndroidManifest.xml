@@ -36,6 +36,9 @@
         <activity android:name=".ui.register.RegisterEmail2" />
         <activity android:name=".ui.freeBoard.FreePostViewActivity"/>
         <activity android:name=".ui.freeBoard.FreeModifyPostActivity"/>
+        <activity android:name=".ui.infoBoard.InfoModifyPostActivity"/>
+        <activity android:name=".ui.infoBoard.InfoPostViewActivity"/>
+        <activity android:name=".ui.infoBoard.InfoWritePostActivity"/>
     </application>
 
 </manifest>

@@ -10,7 +10,7 @@ public class FreeComment {
 
     FreeComment(){}
 
-    FreeComment(String comment){
+    public FreeComment(String comment){
         this.comment=comment;
    //     this.nickname=nickname;
     }

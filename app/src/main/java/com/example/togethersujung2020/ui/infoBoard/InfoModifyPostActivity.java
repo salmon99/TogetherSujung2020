@@ -1,4 +1,4 @@
-package com.example.togethersujung2020.ui.freeBoard;
+package com.example.togethersujung2020.ui.infoBoard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,18 +7,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.freeBoard.FreeModifyPostActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
-public class FreeModifyPostActivity extends AppCompatActivity {
+public class InfoModifyPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +40,12 @@ public class FreeModifyPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-                database.getRef().child("freeboard").child(key1).child("title").setValue(title.getText().toString());
-                database.getRef().child("freeboard").child(key1).child("content").setValue(content.getText().toString());
-//                final FreeListViewAdapter adapter;
-//                adapter = new FreeListViewAdapter();
-//                adapter.notifyDataSetChanged();
+                database.getRef().child("infoboard").child(key1).child("title").setValue(title.getText().toString());
+                database.getRef().child("infoboard").child(key1).child("content").setValue(content.getText().toString());
                 finish();
-                Toast.makeText(FreeModifyPostActivity.this, "글 수정을 완료했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoModifyPostActivity.this, "글 수정을 완료했습니다.", Toast.LENGTH_SHORT).show();
             }
-    });
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

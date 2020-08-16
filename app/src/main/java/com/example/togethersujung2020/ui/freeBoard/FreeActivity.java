@@ -48,6 +48,7 @@ public class FreeActivity extends AppCompatActivity{
         database.child("freeboard").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                final String userId ="김수정";
                 FreeBoard board = snapshot.getValue(FreeBoard.class);
                 adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
                 adapter.notifyDataSetChanged();

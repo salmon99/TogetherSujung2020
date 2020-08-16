@@ -4,13 +4,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FreeBoard {
-    final DatabaseReference database= FirebaseDatabase.getInstance().getReference();
     String title="";
     String content="";
 
     FreeBoard(){}
 
-    FreeBoard(String title, String content){
+    public FreeBoard(String title, String content){
         this.title=title;
         this.content=content;
     }
