@@ -1,4 +1,4 @@
-/*package com.example.togethersujung2020.ui.register;
+package com.example.togethersujung2020.ui.register;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
+/*
 public class RegisterPW extends AppCompatActivity {
 
     private static final String TAG = "RegisterPWD";
@@ -110,14 +110,14 @@ public class RegisterPW extends AppCompatActivity {
         });
 
         //비밀번호 오류시
-                /*}else{
+                }else{
 
                     Toast.makeText(RegisterActivity.this, "비밀번호가 틀렸습니다. 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                 */
- /*   }
+
+    }
     });
             ImageButton a = (ImageButton) findViewById(R.id.imageButton2);
         a.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +133,7 @@ public class RegisterPW extends AppCompatActivity {
 }
 
 
+ */
 
-  */
+
+

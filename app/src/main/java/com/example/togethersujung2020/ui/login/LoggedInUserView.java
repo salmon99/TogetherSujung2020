@@ -1,8 +1,9 @@
-//package com.example.togethersujung2020.ui.login;
+package com.example.togethersujung2020.ui.login;//package com.example.togethersujung2020.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
  */
+
 /*
 class LoggedInUserView {
     private String displayName;
@@ -18,6 +19,7 @@ class LoggedInUserView {
 }
 
  */
+
 
 
 

@@ -1,29 +1,163 @@
 package com.example.togethersujung2020.ui.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.login.Login;
+import com.example.togethersujung2020.ui.register.RegisterActivity;
+import com.example.togethersujung2020.ui.register.Registersub2;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Arrays;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    Button mLocationchange, mNamechange, mPwdchange, mLogout, mUserdelete;
+
+    //firebase auth object
+    private FirebaseAuth firebaseAuth;
+    //private FirebaseAuth mFirebaseAuth;
+    //private DatabaseReference firebaseDatabase;
+
+    private static final String TAG = "SettingsActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼 추가
+
+        //findViewById(R.id.btn_start).setOnClickListener(mClickListener);
+
+        mLocationchange = findViewById(R.id.profile_location);
+        mNamechange = findViewById(R.id.profile_name);
+        mPwdchange = findViewById(R.id.profile_password);
+        mLogout = findViewById(R.id.profile_logout);
+        mUserdelete = findViewById(R.id.profile_exit);
+
+        //파이어베이스 접근 설정
+        //FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        //mFirebaseAuth = FirebaseAuth.getInstance();
+        //firebaseDatabase = FirebaseDatabase.getInstance().getReference();
+
+        //현재 로그인한 사용자 가져오기
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+
+            //위치 변경
+            mLocationchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
+                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
+
+
+                }
+            });
+
+            //닉네임 변경
+            mPwdchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
+                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                            .setDisplayName("Jane Q. User")
+                            .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+                            .build();
+
+                    user.updateProfile(profileUpdates)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "User profile updated.");
+                                    }
+                                }
+                            });
+                }
+            });
+
+            //비밀번호 변경
+            mPwdchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
+                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    String newPassword = "SOME-SECURE-PASSWORD";
+
+                    user.updatePassword(newPassword)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "User password updated.");
+                                    }
+                                }
+                            });
+                }
+            });
+
+            //로그아웃
+            mLogout.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    firebaseAuth.signOut();
+                    //finish();
+                    Intent intent = new Intent(
+                            getApplicationContext(), // 현재 화면의 제어권자
+                            Login.class); // 다음 넘어갈 클래스 지정
+                    startActivity(intent); // 다음 화면으로 넘어간다
+                }
+            });
+
+            //회원 탈퇴
+            mUserdelete.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+                @Override
+                public void onClick(View view) {
+                    //intent함수를 통해 register액티비티 함수를 호출한다.
+                    startActivity(new Intent(SettingsActivity.this, DeleteActivity.class));
+                }
+            });
+        }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
-        ActionBar ab = getSupportActionBar() ;
-        ab.setTitle("환경 설정") ;
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("환경 설정");
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //액션바 실행하기
         switch (item.getItemId()) {
@@ -35,4 +169,5 @@ public class SettingsActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

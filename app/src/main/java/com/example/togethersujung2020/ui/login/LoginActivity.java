@@ -1,4 +1,5 @@
-/*package com.example.togethersujung2020.ui.login;
+/*
+package com.example.togethersujung2020.ui.login;
 
 import android.app.Activity;
 
@@ -159,4 +160,3 @@ public class LoginActivity extends AppCompatActivity {
 }
 
  */
-

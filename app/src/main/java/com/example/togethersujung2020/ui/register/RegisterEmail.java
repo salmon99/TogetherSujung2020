@@ -24,10 +24,10 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+/*
+public class RegisterEmail {
 
-//public class RegisterEmail {
-
-/*    public void sendEmailVerification() {
+    public void sendEmailVerification() {
         // [START send_email_verification]
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();

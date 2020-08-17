@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.togethersujung2020.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class FreeListViewAdapter extends BaseAdapter {
@@ -45,7 +43,7 @@ public class FreeListViewAdapter extends BaseAdapter {
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1) ;
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
+        TextView descTextView = (TextView) convertView.findViewById(R.id.textView23) ;
         TextView commentTextView = (TextView) convertView.findViewById(R.id.commentNumber1);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득

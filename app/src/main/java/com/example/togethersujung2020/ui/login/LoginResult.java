@@ -1,4 +1,5 @@
-/*import com.example.togethersujung2020.ui.login.LoggedInUserView;
+/*
+import com.example.togethersujung2020.ui.login.LoggedInUserView;
 
 import com.example.togethersujung2020.ui.login.LoggedInUserView;
 
@@ -12,9 +13,9 @@ import com.example.togethersujung2020.ui.login.LoggedInUserView;
  * Authentication result : success (user details) or error message.
  */
 
-/*
-import com.example.togethersujung2020.ui.login.LoggedInUserView;
 
+//import com.example.togethersujung2020.ui.login.LoggedInUserView;
+/*
 class LoginResult {
     @Nullable
     private LoggedInUserView success;
@@ -39,5 +40,6 @@ class LoginResult {
         return error;
     }
 }
+
 
  */

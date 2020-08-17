@@ -1,11 +1,11 @@
-/*package com.example.togethersujung2020.ui.login;
+package com.example.togethersujung2020.ui.login;
 
 import androidx.annotation.Nullable;
 
 /**
  * Data validation state of the login form.
  */
-/*
+
 class LoginFormState {
     @Nullable
     private Integer usernameError;
@@ -39,5 +39,3 @@ class LoginFormState {
         return isDataValid;
     }
 }
-
- */

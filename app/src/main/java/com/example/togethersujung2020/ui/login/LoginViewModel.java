@@ -1,4 +1,5 @@
-/*package com.example.togethersujung2020.ui.login;
+/*
+package com.example.togethersujung2020.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,6 +11,7 @@ import com.example.togethersujung2020.data.LoginRepository;
 import com.example.togethersujung2020.data.Result;
 import com.example.togethersujung2020.data.model.LoggedInUser;
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.login.LoginFormState;
 
 public class LoginViewModel extends ViewModel {
 

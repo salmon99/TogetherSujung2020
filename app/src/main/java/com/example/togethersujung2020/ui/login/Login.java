@@ -32,7 +32,7 @@ public class Login  extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        firebaseAuth =  FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         //버튼 등록하기
         mRegisterBtn = findViewById(R.id.registerBtn);
         mLoginBtn = findViewById(R.id.loginBtn);
@@ -41,8 +41,7 @@ public class Login  extends AppCompatActivity {
 
 
         //가입 버튼이 눌리면
-        mRegisterBtn.setOnClickListener(new View.OnClickListener(){
-
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 register액티비티 함수를 호출한다.
@@ -51,11 +50,16 @@ public class Login  extends AppCompatActivity {
             }
         });
 
-        //로그인 버튼이 눌리면
-        mLoginBtn.setOnClickListener(new View.OnClickListener(){
 
+        //로그인 버튼이 눌리면
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(Login.this, MainActivity.class) ;
+                startActivity(intent) ;
+
+
                 String email = mEmailText.getText().toString().trim();
                 String pwd = mPasswordText.getText().toString().trim();
                 firebaseAuth.signInWithEmailAndPassword(email,pwd)
