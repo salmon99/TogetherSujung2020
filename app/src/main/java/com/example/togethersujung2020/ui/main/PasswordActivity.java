@@ -35,6 +35,7 @@ public class PasswordActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(PasswordActivity.this, "새 비밀번호를 입력해 주세요!", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
