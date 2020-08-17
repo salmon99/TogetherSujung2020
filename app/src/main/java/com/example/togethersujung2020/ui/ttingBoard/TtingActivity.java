@@ -1,6 +1,5 @@
 package com.example.togethersujung2020.ui.ttingBoard;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,8 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.freeBoard.FreeListViewAdapter;
-import com.example.togethersujung2020.ui.main.SettingsActivity;
-import com.example.togethersujung2020.ui.main.VPAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class TtingActivity extends AppCompatActivity {

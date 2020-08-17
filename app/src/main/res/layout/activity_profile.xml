@@ -6,7 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -74,10 +78,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <androidx.viewpager.widget.ViewPager-->
+<!--            android:id="@+id/viewpager"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/profile_tab"
             android:layout_width="match_parent"
@@ -85,18 +89,58 @@
             app:tabIndicatorColor="@color/colorPrimary"
             app:tabSelectedTextColor="@color/colorPrimaryDark">
             <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내가 쓴 글"
             />
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="내가 쓴 댓글"
                 />
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="스크랩 한 글"
                 />
         </com.google.android.material.tabs.TabLayout>
-    </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/profile_fragment">
+
+<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_content"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#4CAF50"-->
+<!--                    android:gravity="center"-->
+<!--                    android:visibility="visible"-->
+<!--                    android:id="@+id/profile_tab1" />-->
+
+<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_comment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#FF9800"-->
+<!--                    android:gravity="center"-->
+<!--                    android:visibility="invisible"-->
+<!--                    android:id="@+id/profile_tab2" />-->
+
+<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_scrap"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="#009688"-->
+<!--                    android:gravity="center"-->
+<!--                    android:visibility="invisible"-->
+<!--                    android:id="@+id/profile_tab3" />-->
+
+            </FrameLayout>
+    </LinearLayout>
+    </LinearLayout>
+<!--    </androidx.viewpager.widget.ViewPager>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
