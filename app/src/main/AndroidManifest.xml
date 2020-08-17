@@ -39,6 +39,15 @@
         <activity android:name=".ui.infoBoard.InfoModifyPostActivity"/>
         <activity android:name=".ui.infoBoard.InfoPostViewActivity"/>
         <activity android:name=".ui.infoBoard.InfoWritePostActivity"/>
+        <activity android:name=".ui.helpBoard.HelpModifyPostActivity"/>
+        <activity android:name=".ui.helpBoard.HelpPostViewActivity"/>
+        <activity android:name=".ui.helpBoard.HelpWritePostActivity"/>
+        <activity android:name=".ui.housingBoard.HousingPostViewActivity"/>
+        <activity android:name=".ui.housingBoard.HousingModifyPostActivity"/>
+        <activity android:name=".ui.housingBoard.HousingWritePostActivity"/>
+        <activity android:name=".ui.tradingBoard.TradeWritePostActivity"/>
+        <activity android:name=".ui.tradingBoard.TradePostViewActivity"/>
+        <activity android:name=".ui.tradingBoard.TradeModifyPostActivity"/>
     </application>
 
 </manifest>
