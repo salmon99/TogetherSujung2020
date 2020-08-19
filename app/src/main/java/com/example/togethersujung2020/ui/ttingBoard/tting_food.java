@@ -1,5 +1,6 @@
 package com.example.togethersujung2020.ui.ttingBoard;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
+import com.example.togethersujung2020.ui.main.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,29 +20,13 @@ import com.example.togethersujung2020.R;
  * create an instance of this fragment.
  */
 public class tting_food extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public tting_food() {
-        // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment tting_food.
-     */
-    // TODO: Rename and change types and number of parameters
     public static tting_food newInstance(String param1, String param2) {
         tting_food fragment = new tting_food();
         Bundle args = new Bundle();
@@ -51,16 +39,77 @@ public class tting_food extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tting_food, container, false);
+        View view = inflater.inflate(R.layout.fragment_tting_food, container, false);
+        Button free_board1 = (Button) view.findViewById(R.id.한식) ;
+        free_board1.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button1Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board2 = (Button) view.findViewById(R.id.중식) ;
+        free_board2.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button2Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board3 = (Button) view.findViewById(R.id.일식) ;
+        free_board3.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button3Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board4 = (Button) view.findViewById(R.id.양식) ;
+        free_board4.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button4Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board5 = (Button) view.findViewById(R.id.치킨) ;
+        free_board5.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button5Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board6 = (Button) view.findViewById(R.id.피자) ;
+        free_board6.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button6Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board7 = (Button) view.findViewById(R.id.분식) ;
+        free_board7.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button7Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+        Button free_board8 = (Button) view.findViewById(R.id.기타) ;
+        free_board8.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Button8Activity.class) ;
+                startActivity(intent) ;
+            }
+        });
+
+        return view;
     }
 }

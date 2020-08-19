@@ -48,6 +48,18 @@
         <activity android:name=".ui.tradingBoard.TradeWritePostActivity"/>
         <activity android:name=".ui.tradingBoard.TradePostViewActivity"/>
         <activity android:name=".ui.tradingBoard.TradeModifyPostActivity"/>
+        <activity android:name=".ui.ttingBoard.Button1Activity"/>
+        <activity android:name=".ui.ttingBoard.Button2Activity"/>
+        <activity android:name=".ui.ttingBoard.Button3Activity"/>
+        <activity android:name=".ui.ttingBoard.Button4Activity"/>
+        <activity android:name=".ui.ttingBoard.Button5Activity"/>
+        <activity android:name=".ui.ttingBoard.Button6Activity"/>
+        <activity android:name=".ui.ttingBoard.Button7Activity"/>
+        <activity android:name=".ui.ttingBoard.Button8Activity"/>
+        <activity android:name=".ui.ttingBoard.TtingPostViewActivity"/>
+        <activity android:name=".ui.ttingBoard.TtingWritePostActivity"/>
+        <activity android:name=".ui.ttingBoard.TtingModifyPostActivity"/>
+
     </application>
 
 </manifest>

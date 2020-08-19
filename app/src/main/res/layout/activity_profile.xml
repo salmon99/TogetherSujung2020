@@ -114,31 +114,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/profile_fragment">
-
-<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_content"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:background="#4CAF50"-->
-<!--                    android:gravity="center"-->
-<!--                    android:visibility="visible"-->
-<!--                    android:id="@+id/profile_tab1" />-->
-
-<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_comment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:background="#FF9800"-->
-<!--                    android:gravity="center"-->
-<!--                    android:visibility="invisible"-->
-<!--                    android:id="@+id/profile_tab2" />-->
-
-<!--                <fragment android:name="com.example.togethersujung2020.ui.main.profile_scrap"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:background="#009688"-->
-<!--                    android:gravity="center"-->
-<!--                    android:visibility="invisible"-->
-<!--                    android:id="@+id/profile_tab3" />-->
-
             </FrameLayout>
     </LinearLayout>
     </LinearLayout>
