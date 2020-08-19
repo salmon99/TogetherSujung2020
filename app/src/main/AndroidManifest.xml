@@ -59,6 +59,7 @@
         <activity android:name=".ui.ttingBoard.TtingPostViewActivity"/>
         <activity android:name=".ui.ttingBoard.TtingWritePostActivity"/>
         <activity android:name=".ui.ttingBoard.TtingModifyPostActivity"/>
+        <activity android:name=".ui.main.NoticeActivity"/>
 
     </application>
 

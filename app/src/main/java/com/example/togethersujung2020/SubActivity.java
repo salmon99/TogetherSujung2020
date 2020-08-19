@@ -13,13 +13,5 @@ public class SubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
-        ImageView imgview = findViewById(R.id.backtomain);
-        imgview.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 }

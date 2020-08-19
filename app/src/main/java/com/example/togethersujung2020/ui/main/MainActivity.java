@@ -4,13 +4,19 @@ package com.example.togethersujung2020.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
+import com.example.togethersujung2020.ui.freeBoard.FreeWritePostActivity;
 import com.example.togethersujung2020.ui.helpBoard.HelpActivity;
 import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
 import com.example.togethersujung2020.ui.infoBoard.InfoActivity;
@@ -22,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile);
 
         Button free_board = (Button) findViewById(R.id.free_board) ; //자유게시판 버튼 누르면 화면 이동
         free_board.setOnClickListener(new Button.OnClickListener() {
@@ -81,5 +90,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent) ;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
+        ActionBar ab = getSupportActionBar() ;
+        ab.setTitle("같이수정") ;
+        getMenuInflater().inflate(R.menu.mainactionbar_actions, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //액션바 실행하기
+        switch (item.getItemId()){
+            case R.id.bell:
+                Intent newPost = new Intent(this, NoticeActivity.class);
+                startActivity(newPost);
+                Toast.makeText(MainActivity.this, "알림창 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home:
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
+                Toast.makeText(MainActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
