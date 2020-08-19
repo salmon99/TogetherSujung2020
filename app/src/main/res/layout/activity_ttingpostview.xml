@@ -32,7 +32,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/contents"
                     android:layout_margin="10dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical"/>
                 </LinearLayout>
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline"
