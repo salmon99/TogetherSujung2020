@@ -9,13 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.example.togethersujung2020.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class FreeListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<FreeListViewItem> listViewItemList = new ArrayList<FreeListViewItem>() ;
+    private ArrayList<FreeListViewItem> listViewItemList = new ArrayList<FreeListViewItem>();
 
     // ListViewAdapter의 생성자
     public FreeListViewAdapter() {
@@ -25,7 +29,7 @@ public class FreeListViewAdapter extends BaseAdapter {
     // Adapter에 사용되는 데이터의 개수를 리턴. : 필수 구현
     @Override
     public int getCount() {
-        return listViewItemList.size() ;
+        return listViewItemList.size();
     }
 
     // position에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴. : 필수 구현
@@ -41,19 +45,15 @@ public class FreeListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1) ;
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView23) ;
-        TextView commentTextView = (TextView) convertView.findViewById(R.id.commentNumber1);
+        TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1);
+        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         FreeListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         descTextView.setText(listViewItem.getDesc());
-        commentTextView.setText(listViewItem.getComment());
 
         return convertView;
     }
@@ -61,24 +61,28 @@ public class FreeListViewAdapter extends BaseAdapter {
     // 지정한 위치(position)에 있는 데이터와 관계된 아이템(row)의 ID를 리턴. : 필수 구현
     @Override
     public long getItemId(int position) {
-        return position ;
+        return position;
     }
 
     // 지정한 위치(position)에 있는 데이터 리턴 : 필수 구현
     @Override
     public Object getItem(int position) {
-        return listViewItemList.get(position) ;
+        return listViewItemList.get(position);
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String title, String desc,String comment) {
-        FreeListViewItem item = new FreeListViewItem();
 
-        item.setIcon(icon);
+    public void addItem(String title, String desc, String key) {
+        FreeListViewItem item = new FreeListViewItem();
         item.setTitle(title);
         item.setDesc(desc);
-        item.setComment(comment);
+        item.setComment("0");
+        item.setKey(key);
 
         listViewItemList.add(item);
+    }
+
+    public void clear(){
+        listViewItemList.clear();
     }
 }

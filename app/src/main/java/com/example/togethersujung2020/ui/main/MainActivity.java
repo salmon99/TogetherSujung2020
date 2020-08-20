@@ -20,6 +20,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import android.widget.Toast;
+import android.widget.Toolbar;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -31,6 +34,7 @@ import com.example.togethersujung2020.NewActivity;
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.User;
 import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
+import com.example.togethersujung2020.ui.freeBoard.FreeWritePostActivity;
 import com.example.togethersujung2020.ui.helpBoard.HelpActivity;
 import com.example.togethersujung2020.ui.housingBoard.HousingActivity;
 import com.example.togethersujung2020.ui.infoBoard.InfoActivity;
@@ -113,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
         });
         adapter = new CustomAdapter(arrayList, this);
         recyclerView.setAdapter(adapter); // recyclerview에 adapter 연결
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile);
 
         Button free_board = (Button) findViewById(R.id.free_board) ; //자유게시판 버튼 누르면 화면 이동
         free_board.setOnClickListener(new Button.OnClickListener() {

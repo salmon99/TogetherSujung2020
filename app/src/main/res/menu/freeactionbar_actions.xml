@@ -6,9 +6,9 @@
         android:icon="@drawable/newpost"
         android:title="새 글 등록"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/profile"
-        android:icon="@drawable/profile"
-        android:title="프로필"
-        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:id="@+id/profile"-->
+<!--        android:icon="@drawable/profile"-->
+<!--        android:title="프로필"-->
+<!--        app:showAsAction="always" />-->
 </menu>

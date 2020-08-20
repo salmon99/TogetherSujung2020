@@ -8,9 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/sujunglogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/sujunglogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -62,5 +62,31 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id"/>
+        <activity android:name=".ui.freeBoard.FreePostViewActivity"/>
+        <activity android:name=".ui.freeBoard.FreeModifyPostActivity"/>
+        <activity android:name=".ui.infoBoard.InfoModifyPostActivity"/>
+        <activity android:name=".ui.infoBoard.InfoPostViewActivity"/>
+        <activity android:name=".ui.infoBoard.InfoWritePostActivity"/>
+        <activity android:name=".ui.helpBoard.HelpModifyPostActivity"/>
+        <activity android:name=".ui.helpBoard.HelpPostViewActivity"/>
+        <activity android:name=".ui.helpBoard.HelpWritePostActivity"/>
+        <activity android:name=".ui.housingBoard.HousingPostViewActivity"/>
+        <activity android:name=".ui.housingBoard.HousingModifyPostActivity"/>
+        <activity android:name=".ui.housingBoard.HousingWritePostActivity"/>
+        <activity android:name=".ui.tradingBoard.TradeWritePostActivity"/>
+        <activity android:name=".ui.tradingBoard.TradePostViewActivity"/>
+        <activity android:name=".ui.tradingBoard.TradeModifyPostActivity"/>
+        <activity android:name=".ui.ttingBoard.Button1Activity"/>
+        <activity android:name=".ui.ttingBoard.Button2Activity"/>
+        <activity android:name=".ui.ttingBoard.Button3Activity"/>
+        <activity android:name=".ui.ttingBoard.Button4Activity"/>
+        <activity android:name=".ui.ttingBoard.Button5Activity"/>
+        <activity android:name=".ui.ttingBoard.Button6Activity"/>
+        <activity android:name=".ui.ttingBoard.Button7Activity"/>
+        <activity android:name=".ui.ttingBoard.Button8Activity"/>
+        <activity android:name=".ui.ttingBoard.TtingPostViewActivity"/>
+        <activity android:name=".ui.ttingBoard.TtingWritePostActivity"/>
+        <activity android:name=".ui.ttingBoard.TtingModifyPostActivity"/>
+        <activity android:name=".ui.main.NoticeActivity"/>
     </application>
 </manifest>
