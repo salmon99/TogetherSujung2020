@@ -6,13 +6,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout0"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -30,27 +27,10 @@
                 android:textColor="#000000"
                 android:textSize="30sp" />
             <Button
-                android:id="@+id/profile_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="닉네임 변경" />
-            <Button
                 android:id="@+id/profile_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="현재 지역 변경" />
-            <Button
-                android:id="@+id/profile_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="비밀번호 변경" />
-            <Button
-                android:id="@+id/profile_photo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="프로필 사진 변경" />
-
-        </LinearLayout>
         <Button
             android:id="@+id/profile_name"
             android:layout_width="match_parent"
@@ -90,4 +70,5 @@
                 android:layout_height="wrap_content"
                 android:text="회원 탈퇴" />
         </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -96,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                    firebaseAuth.signOut();
+                    FirebaseAuth.getInstance().signOut();
 
                     Toast.makeText(getApplicationContext(), "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
                     //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
