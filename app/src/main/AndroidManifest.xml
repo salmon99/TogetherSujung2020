@@ -23,10 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.main.LocationActivity" />
-        <activity android:name=".ui.main.NicknameActivity" />
         <activity android:name=".ui.main.NoticeActivity" />
-        <activity android:name=".ui.main.PasswordActivity" />
         <activity android:name=".ui.freeBoard.FreeActivity" />
         <activity android:name=".ui.helpBoard.HelpActivity" />
         <activity android:name=".ui.housingBoard.HousingActivity" />
@@ -87,6 +84,5 @@
         <activity android:name=".ui.ttingBoard.TtingPostViewActivity"/>
         <activity android:name=".ui.ttingBoard.TtingWritePostActivity"/>
         <activity android:name=".ui.ttingBoard.TtingModifyPostActivity"/>
-        <activity android:name=".ui.main.NoticeActivity"/>
     </application>
 </manifest>

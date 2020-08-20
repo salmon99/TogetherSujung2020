@@ -45,7 +45,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile);
 
         recyclerView = findViewById(R.id.recyclerView); // id 연결
         recyclerView.setHasFixedSize(true); // recyclerview 기존 성능 강화
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 ((LinearLayoutManager) layoutManager).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -117,8 +117,6 @@ public class MainActivity extends AppCompatActivity {
         });
         adapter = new CustomAdapter(arrayList, this);
         recyclerView.setAdapter(adapter); // recyclerview에 adapter 연결
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile);
 
         Button free_board = (Button) findViewById(R.id.free_board) ; //자유게시판 버튼 누르면 화면 이동
         free_board.setOnClickListener(new Button.OnClickListener() {
@@ -191,15 +189,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_profile:
-                Intent profile1 = new Intent(this, ProfileActivity.class);
-                startActivity(profile1);
-                Toast.makeText(MainActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_notice:
+            case R.id.bell:
                 Intent notice = new Intent(this, NoticeActivity.class);
                 startActivity(notice);
                 Toast.makeText(MainActivity.this, "알림창 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home:
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
+                Toast.makeText(MainActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

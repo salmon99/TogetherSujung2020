@@ -24,11 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-public class ProfileActivity extends AppCompatActivity {
-
     //TextView mEmail;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +40,16 @@ public class ProfileActivity extends AppCompatActivity {
                 int pos = tab.getPosition();
                 changeView(pos);
             }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // do nothing
+            }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼
-
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // do nothing
+            }
+        });
         //사용자 정보 가져오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -63,17 +66,6 @@ public class ProfileActivity extends AppCompatActivity {
             // FirebaseUser.getIdToken() instead.
             String uid = user.getUid();
         }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                // do nothing
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                // do nothing
-            }
-        });
     }
 
     private void changeView(int index) {
