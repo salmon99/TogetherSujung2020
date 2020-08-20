@@ -67,11 +67,12 @@ public class NoticeAdapter extends BaseAdapter {
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
 
-    public void addItem(String title, String desc, String key) {
+    public void addItem(String title, String desc, String key,String pos) {
         FreeListViewItem item = new FreeListViewItem();
         item.setTitle(title);
         item.setDesc(desc);
         item.setKey(key);
+        item.setComment(pos);
 
         listViewItemList.add(item);
     }

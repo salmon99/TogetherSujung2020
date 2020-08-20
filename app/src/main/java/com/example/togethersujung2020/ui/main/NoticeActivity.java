@@ -26,12 +26,20 @@ import com.example.togethersujung2020.ui.freeBoard.FreeBoard;
 import com.example.togethersujung2020.ui.freeBoard.FreeListViewAdapter;
 import com.example.togethersujung2020.ui.freeBoard.FreeListViewItem;
 import com.example.togethersujung2020.ui.freeBoard.FreePostViewActivity;
+import com.example.togethersujung2020.ui.helpBoard.HelpPostViewActivity;
+import com.example.togethersujung2020.ui.housingBoard.HousingPostViewActivity;
+import com.example.togethersujung2020.ui.infoBoard.InfoPostViewActivity;
+import com.example.togethersujung2020.ui.tradingBoard.TradePostViewActivity;
+import com.example.togethersujung2020.ui.ttingBoard.TtingPostViewActivity;
+import com.google.firebase.FirebaseError;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Objects;
 
 public class NoticeActivity extends AppCompatActivity {
@@ -53,157 +61,27 @@ public class NoticeActivity extends AppCompatActivity {
         listview.setAdapter(adapter);
 
         final DatabaseReference database= FirebaseDatabase.getInstance().getReference();
-        database.child("freeboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot innerDataSanpShot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot innnerDataSanpShot : innerDataSanpShot.getChildren()) {
+                        for (DataSnapshot innnnerDataSanpShot : innnerDataSanpShot.getChildren()) {
+                            String info = innnnerDataSanpShot.child("comment").getValue(String.class);
+                            if (info != null) {
+                                FreeBoard board = innnerDataSanpShot.getValue(FreeBoard.class);
+                                adapter.addItem(board.getTitle(), board.getContent(), innnerDataSanpShot.getKey(),innerDataSanpShot.getKey());
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                }
             }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-        database.child("helpboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        database.child("housingboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        database.child("infoboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        database.child("tradeboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        database.child("ttingboard").orderByChild("comment").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String title = snapshot.getValue().toString();
-                FreeBoard board = snapshot.getValue(FreeBoard.class);
-                adapter.addItem(board.getTitle(),board.getContent(),snapshot.getKey());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -216,14 +94,48 @@ public class NoticeActivity extends AppCompatActivity {
                 String commentNumber = item.getComment();
                 String key=item.getKey();
 
-                // TODO : use item data.
-
-                Intent postview = new Intent(NoticeActivity.this, FreePostViewActivity.class);
-                postview.putExtra("title",titleStr);
-                postview.putExtra("content",descStr);
-                postview.putExtra("commentNum",commentNumber);
-                postview.putExtra("postkey",key);
-                startActivity(postview);
+                if(commentNumber.equals("freeboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, FreePostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
+                if(commentNumber.equals("infoboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, InfoPostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
+                if(commentNumber.equals("housingboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, HousingPostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
+                if(commentNumber.equals("ttingboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, TtingPostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
+                if(commentNumber.equals("tradeboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, TradePostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
+                if(commentNumber.equals("helpboard")) {
+                    Intent postview = new Intent(NoticeActivity.this, HelpPostViewActivity.class);
+                    postview.putExtra("title", titleStr);
+                    postview.putExtra("content", descStr);
+                    postview.putExtra("postkey", key);
+                    startActivity(postview);
+                }
             }
         }) ;
     }
