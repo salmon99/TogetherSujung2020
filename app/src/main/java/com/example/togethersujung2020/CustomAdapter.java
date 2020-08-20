@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,25 +25,35 @@ import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
     private ArrayList<User> arrayList;
+    private Context mContext;
 
     public static class CustomViewHolder extends RecyclerView.ViewHolder {
-        TextView title;
-        TextView date;
+            public View mView;
+            TextView title;
+            TextView date;
+            TextView content;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
+            mView = itemView;
             this.title = itemView.findViewById(R.id.title);
             this.date = itemView.findViewById(R.id.date);
+            this.content = itemView.findViewById(R.id.content);
         }
 
         public void onClick(View v) {
             System.out.println(getAdapterPosition()); //getposition()이 줄쳐져 있던데 뭐지?
             Intent intent = new Intent(v.getContext(), NewActivity.class);
+            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+            v.getContext().startActivity(intent);
         }
     }
 
+
     public CustomAdapter(ArrayList<User> arrayList, MainActivity mainActivity) {
+        Log.e("[IMPORTANT] ", "init size" + arrayList.size());
         this.arrayList = arrayList;
+        this.mContext = mContext;
     }
 
     @NonNull
@@ -61,10 +72,5 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public int getItemCount() {
         return (arrayList != null ? arrayList.size() : 0);
-    }
-
-    public void addItem(User data) {
-        // 외부에서 item을 추가시킬 함수입니다.
-        arrayList.add(data);
     }
 }

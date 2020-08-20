@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.togethersujung2020.CustomAdapter;
+import com.example.togethersujung2020.NewActivity;
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.User;
 import com.example.togethersujung2020.ui.freeBoard.FreeActivity;
@@ -44,6 +45,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,11 +56,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
-    public void addItem(String title, String date) {
-        User item = new User();
-        item.setTitle(title);
-        item.setDate(date);
-        arrayList.add(item);
+    interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
     }
 
     @Override
@@ -72,12 +73,26 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<>(); // User 객체를 담을 arraylist(adapter쪽으로)
 
-        addItem("공지우가우가", "2020-09-90");
-
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 ((LinearLayoutManager) layoutManager).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                User user = arrayList.get(position);
+
+                Intent intent = new Intent(getBaseContext(), NewActivity.class);
+                intent.putExtra("title", user.getTitle());
+                intent.putExtra("date", user.getDate());
+                intent.putExtra("content", user.getContent());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }));
         database = FirebaseDatabase.getInstance(); // Firebase database 연동
         databaseReference = database.getReference("User"); // DB 테이블 연결
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,14 +113,6 @@ public class MainActivity extends AppCompatActivity {
         });
         adapter = new CustomAdapter(arrayList, this);
         recyclerView.setAdapter(adapter); // recyclerview에 adapter 연결
-
-// 알림 연결임 아마도
-        try {
-            String token = FirebaseInstanceId.getInstance().getToken();
-            Log.d("IDService","device token : "+token);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
 
         Button free_board = (Button) findViewById(R.id.free_board) ; //자유게시판 버튼 누르면 화면 이동
         free_board.setOnClickListener(new Button.OnClickListener() {
