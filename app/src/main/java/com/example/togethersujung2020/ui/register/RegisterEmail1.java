@@ -1,4 +1,4 @@
-package com.example.togethersujung2020.ui.register;
+/*package com.example.togethersujung2020.ui.register;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -51,3 +51,5 @@ public class RegisterEmail1 extends AppCompatActivity implements View.OnClickLis
     }
 
 }
+
+ */

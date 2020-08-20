@@ -1,4 +1,26 @@
-package com.example.togethersujung2020.ui.login;
+/*
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.togethersujung2020.data.LoginDataSource;
+import com.example.togethersujung2020.data.LoginRepository;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.togethersujung2020.data.LoginDataSource;
+import com.example.togethersujung2020.data.LoginRepository;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.togethersujung2020.data.LoginDataSource;
+import com.example.togethersujung2020.data.LoginRepository;
+
+ package com.example.togethersujung2020.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -6,11 +28,21 @@ import androidx.annotation.NonNull;
 
 import com.example.togethersujung2020.data.LoginDataSource;
 import com.example.togethersujung2020.data.LoginRepository;
+import com.example.togethersujung2020.ui.login.LoginViewModel;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
  * Required given LoginViewModel has a non-empty constructor
  */
+
+/*
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.togethersujung2020.data.LoginDataSource;
+import com.example.togethersujung2020.data.LoginRepository;
+
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
     @NonNull
@@ -24,3 +56,8 @@ public class LoginViewModelFactory implements ViewModelProvider.Factory {
         }
     }
 }
+
+
+
+ */
+
