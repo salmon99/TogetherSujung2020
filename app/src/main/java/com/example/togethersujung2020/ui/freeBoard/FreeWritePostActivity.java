@@ -34,7 +34,8 @@ public class FreeWritePostActivity extends AppCompatActivity {
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
 
-        editTitle.setText("");
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("자유로운 주제로 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

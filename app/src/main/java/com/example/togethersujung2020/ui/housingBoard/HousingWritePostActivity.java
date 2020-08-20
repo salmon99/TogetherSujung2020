@@ -31,6 +31,9 @@ public class HousingWritePostActivity extends AppCompatActivity {
 
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
+
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("주변 지역 빌라/오피스텔/원룸 등 주거 환경에 관한 정보를 공유하는 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

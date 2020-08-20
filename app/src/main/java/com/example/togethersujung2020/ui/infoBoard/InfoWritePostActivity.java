@@ -31,6 +31,9 @@ public class InfoWritePostActivity extends AppCompatActivity {
 
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
+
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("1인 가구에 관한, 혹은 여러가지 유용한 정보성 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

@@ -31,6 +31,9 @@ public class HelpWritePostActivity extends AppCompatActivity {
 
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
+
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("주변 사람에게 도움을 요청하거나 도움을 준다는 내용의 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

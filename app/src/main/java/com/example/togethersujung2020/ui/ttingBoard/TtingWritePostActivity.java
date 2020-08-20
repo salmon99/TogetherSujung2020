@@ -33,6 +33,8 @@ public class TtingWritePostActivity extends AppCompatActivity {
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
 
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("띵 하고 싶은 [음식(물건)], 나누고 싶은 [인원 수](ex) 2명), [가격], [거래 장소]의 내용을 포함해서 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

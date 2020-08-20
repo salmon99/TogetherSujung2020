@@ -114,11 +114,6 @@ public class FreeActivity extends AppCompatActivity{
                 startActivity(newPost);
                 Toast.makeText(FreeActivity.this, "새 글 등록 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.profile:
-                Intent profile = new Intent(this, ProfileActivity.class);
-                startActivity(profile);
-                Toast.makeText(FreeActivity.this, "프로필 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();
-                return true;
             case android.R.id.home: //뒤로가기 버튼 클릭시 동작
                 finish();
                 Toast.makeText(this, "뒤로가기 버튼을 클릭했습니다.", Toast.LENGTH_SHORT).show();

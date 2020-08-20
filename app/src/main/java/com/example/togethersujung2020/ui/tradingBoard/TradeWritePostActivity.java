@@ -31,6 +31,9 @@ public class TradeWritePostActivity extends AppCompatActivity {
 
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
+
+        editTitle.setHint("제목을 입력해주세요.");
+        editContent.setHint("사거나 팔고 싶은 물건의 [제품명],[가격],[설명]을 포함해서 글을 작성해주세요.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기
