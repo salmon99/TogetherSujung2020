@@ -64,7 +64,10 @@ public class Login extends AppCompatActivity {
                                     Intent intent = new Intent(Login.this, MainActivity.class);
                                     startActivity(intent);
                                 }else{
-                                    Toast.makeText(Login.this,"아이디나 비밀번호가 틀립니다.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this,"로그인이 안되는 이유? " +
+                                            "\n 1. 아이디나 비밀번호가 틀립니다. " +
+                                            "\n 2. 이메일 인증이 아직 완료되지 않았습니다. " +
+                                            "\n 3. 유효하지 않는 이메일입니다. ",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

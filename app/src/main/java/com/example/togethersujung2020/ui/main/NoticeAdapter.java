@@ -41,7 +41,7 @@ public class NoticeAdapter extends BaseAdapter {
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1);
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2);
+        TextView descTextView = (TextView) convertView.findViewById(R.id.textView25);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         FreeListViewItem listViewItem = listViewItemList.get(position);

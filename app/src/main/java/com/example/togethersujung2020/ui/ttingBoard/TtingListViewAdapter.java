@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.freeBoard.FreeListViewItem;
 
 import java.util.ArrayList;
 
@@ -42,7 +41,7 @@ public class TtingListViewAdapter extends BaseAdapter {
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1);
         TextView descTextView = (TextView) convertView.findViewById(R.id.textView3);
-        TextView divTextView = (TextView) convertView.findViewById(R.id.textView2);
+        TextView divTextView = (TextView) convertView.findViewById(R.id.textView25);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         TtingListViewItem listViewItem = listViewItemList.get(position);
