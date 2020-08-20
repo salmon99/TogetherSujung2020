@@ -33,6 +33,8 @@ public class FreeWritePostActivity extends AppCompatActivity {
 
         editTitle = (EditText) findViewById(R.id.editTextTitle);
         editContent = (EditText) findViewById(R.id.editTextContents);
+
+        editTitle.setText("");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //액션바 메뉴 표시하기

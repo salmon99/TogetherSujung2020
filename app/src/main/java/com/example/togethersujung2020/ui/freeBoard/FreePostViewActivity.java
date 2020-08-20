@@ -39,6 +39,7 @@ import java.util.List;
 
 public class FreePostViewActivity extends AppCompatActivity {
 final String userId ="김수정";
+final String area ="성북구";
 EditText editComment;
 private ListView listView;
 private FreeCommentListViewAdapter adapter;
@@ -90,7 +91,7 @@ private Context mContext;
 
         title.setText(title1);
         content.setText(content1);
-        postkey.setText(key1); //todo 나중에 키값 보여주는 건 지우기
+        postkey.setText(area); //todo 나중에 키값 보여주는 건 지우기
         userName.setText(userId);
 
 
