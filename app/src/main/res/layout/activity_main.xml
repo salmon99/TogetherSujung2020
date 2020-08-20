@@ -13,11 +13,14 @@
         android:layout_marginTop="468dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-        android:text="@string/help_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/help"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/help"/>
 
     <Button
         android:id="@+id/tting_board"
@@ -28,11 +31,14 @@
         android:layout_marginTop="468dp"
         android:layout_marginEnd="276dp"
         android:layout_marginRight="276dp"
-        android:text="@string/tting_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/tting"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/tting"/>
 
     <Button
         android:id="@+id/free_board"
@@ -43,11 +49,14 @@
         android:layout_marginTop="344dp"
         android:layout_marginEnd="276dp"
         android:layout_marginRight="276dp"
-        android:text="@string/free_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/free1"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/free1" />
 
     <Button
         android:id="@+id/info_board"
@@ -58,11 +67,14 @@
         android:layout_marginTop="344dp"
         android:layout_marginEnd="156dp"
         android:layout_marginRight="156dp"
-        android:text="@string/info_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/info"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/info"/>
 
     <Button
         android:id="@+id/trading_board"
@@ -73,11 +85,14 @@
         android:layout_marginTop="468dp"
         android:layout_marginEnd="156dp"
         android:layout_marginRight="156dp"
-        android:text="@string/trading_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/trade"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/trade"/>
 
     <Button
         android:id="@+id/housing_board"
@@ -88,11 +103,14 @@
         android:layout_marginTop="344dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-        android:text="@string/housing_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/housing"
+        android:drawablePadding="-30dp"
+        android:background="@drawable/imgbtn_states"
+        android:drawableLeft="@drawable/housing"/>
 
     <TextView
         android:id="@+id/notice"
