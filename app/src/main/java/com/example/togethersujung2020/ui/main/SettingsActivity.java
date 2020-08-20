@@ -1,32 +1,20 @@
 package com.example.togethersujung2020.ui.main;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
 import com.example.togethersujung2020.ui.login.Login;
-import com.example.togethersujung2020.ui.register.RegisterActivity;
-import com.example.togethersujung2020.ui.register.Registersub2;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Arrays;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -67,71 +55,45 @@ public class SettingsActivity extends AppCompatActivity {
             mLocationchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
-                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
-
-
+                    //intent함수를 통해 register액티비티 함수를 호출한다.
+                    startActivity(new Intent(SettingsActivity.this, SettingNicknameActivity.class));
                 }
             });
+
 
             //닉네임 변경
-            mPwdchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
+            mNamechange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
-                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
-
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                            .setDisplayName("Jane Q. User")
-                            .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
-                            .build();
-
-                    user.updateProfile(profileUpdates)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d(TAG, "User profile updated.");
-                                    }
-                                }
-                            });
+                    //intent함수를 통해 register액티비티 함수를 호출한다.
+                    startActivity(new Intent(SettingsActivity.this, SettingNicknameActivity.class));
                 }
             });
+
+
 
             //비밀번호 변경
             mPwdchange.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "버튼 클릭 성공", Toast.LENGTH_SHORT).show();
-                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
-
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    String newPassword = "SOME-SECURE-PASSWORD";
-
-                    user.updatePassword(newPassword)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d(TAG, "User password updated.");
-                                    }
-                                }
-                            });
+                    //intent함수를 통해 register액티비티 함수를 호출한다.
+                    startActivity(new Intent(SettingsActivity.this, SettingPwdActivity.class));
                 }
             });
+
 
             //로그아웃
             mLogout.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
-                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                     firebaseAuth.signOut();
+
+                    Toast.makeText(getApplicationContext(), "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+                    //버튼 클릭시 Toast 메세지"버튼 클릭 성공" 출력
+
                     //finish();
                     Intent intent = new Intent(
                             getApplicationContext(), // 현재 화면의 제어권자
@@ -139,13 +101,12 @@ public class SettingsActivity extends AppCompatActivity {
                     startActivity(intent); // 다음 화면으로 넘어간다
                 }
             });
-
             //회원 탈퇴
             mUserdelete.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
                 @Override
                 public void onClick(View view) {
                     //intent함수를 통해 register액티비티 함수를 호출한다.
-                    startActivity(new Intent(SettingsActivity.this, DeleteActivity.class));
+                    startActivity(new Intent(SettingsActivity.this, SettingDeleteActivity.class));
                 }
             });
         }

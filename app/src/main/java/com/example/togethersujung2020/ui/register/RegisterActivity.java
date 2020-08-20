@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent); // 다음 화면으로 넘어간다
             }
         });
-/*
+
         //파이어베이스 접근 설정
         FirebaseUser user = mFirebaseAuth.getCurrentUser();
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -62,13 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
         mEmailregister = findViewById(R.id.Emailbutton);
 
         mPasswordText = findViewById(R.id.editTextPassword);
-
         mPwdregister = findViewById(R.id.PWbutton);
 
         //mPasswordcheckText = findViewById(R.id.passwordcheckEdt);
-        //mName = findViewById(R.id.nameEt);
 
-        //파이어베이스 user 로 접글
+        //파이어베이스 user 로 접근
         //가입버튼 클릭리스너   -->  firebase에 데이터를 저장한다.
         mPwdregister.setOnClickListener(new View.OnClickListener(){
 
@@ -106,22 +104,20 @@ public class RegisterActivity extends AppCompatActivity {
 
                             hashMap.put("uid",uid);
                             hashMap.put("email",email);
-                            //hashMap.put("name",name);
 
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference reference = database.getReference("Users");
                             reference.child(uid).setValue(hashMap);
 
-
                             //가입이 이루어져을시 가입 화면을 빠져나감.
-                            Intent intent = new Intent(RegisterActivity.this, Registersub3.class);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(RegisterActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+                            //Intent intent = new Intent(RegisterActivity.this, Registersub3.class);
+                            //startActivity(intent);
+                            //finish();
+                            //Toast.makeText(RegisterActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 mDialog.dismiss();
-                                Toast.makeText(RegisterActivity.this, "이미 존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "이미 존재하는 이메일 입니다.", Toast.LENGTH_SHORT).show();
                                 return;  //해당 메소드 진행을 멈추고 빠져나감.
 
                             }
@@ -209,7 +205,5 @@ public class RegisterActivity extends AppCompatActivity {
 
  */
 
-    }
-}
 
 

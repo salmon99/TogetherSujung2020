@@ -31,9 +31,11 @@
         <activity android:name=".ui.main.ProfileActivity"/>
         <activity android:name=".ui.register.Registersub2" />
         <activity android:name=".ui.register.Registersub3" />
-        <activity android:name=".ui.register.RegisterEmail1" />
-        <activity android:name=".ui.register.RegisterEmail2" />
-        <activity android:name=".ui.register.DeleteActivity" />
+        <activity android:name=".ui.main.SettingNicknameActivity" />
+        <activity android:name=".ui.main.SettingLocationActivity" />
+        <activity android:name=".ui.main.SettingPwdActivity" />
+        <activity android:name=".ui.main.SettingDeleteActivity" />
+
     </application>
 
 </manifest>

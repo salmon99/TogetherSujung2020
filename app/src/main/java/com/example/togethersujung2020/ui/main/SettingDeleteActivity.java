@@ -11,35 +11,35 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.login.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class DeleteActivity extends AppCompatActivity {
+public class SettingDeleteActivity extends AppCompatActivity {
 
     Button mDelete, mReturn;
     EditText mPwd;
 
-
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "DeleteActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete);
+        setContentView(R.layout.activity_setting_delete);
 
         mDelete = findViewById(R.id.button5);
         mPwd = findViewById(R.id.editTextTextPassword);
         mReturn = findViewById(R.id.button4);
 
+        //할래요 버튼
         mDelete.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
             @Override
             public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                //String pwd = user.getDisplayName();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String pwd = user.getDisplayName();
 
                 user.delete()
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -54,6 +54,7 @@ public class DeleteActivity extends AppCompatActivity {
             }
         });
 
+        //안할래요 버튼
         mReturn.setOnClickListener(new View.OnClickListener() {//버튼 이벤트 처리
             @Override
             public void onClick(View view) {
