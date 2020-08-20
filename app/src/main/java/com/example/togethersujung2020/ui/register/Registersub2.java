@@ -31,6 +31,7 @@ public class Registersub2 extends AppCompatActivity {
     private RadioGroup radioGroup;
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference firebaseDatabase;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class Registersub2 extends AppCompatActivity {
         public void onClick(View view) {
 
             //파이어베이스 접근 설정
-            FirebaseUser user = mFirebaseAuth.getCurrentUser();
+            FirebaseUser user = mFirebaseAuth.getInstance().getCurrentUser();
             mFirebaseAuth = FirebaseAuth.getInstance();
             firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 

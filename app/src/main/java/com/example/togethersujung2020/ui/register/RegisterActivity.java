@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText mEmailText, mPasswordText;
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference firebaseDatabase;
+    private FirebaseUser firebaseUser;
 
 
     @Override
@@ -54,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //파이어베이스 접근 설정
-        FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        FirebaseUser user = mFirebaseAuth.getInstance().getCurrentUser();
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 

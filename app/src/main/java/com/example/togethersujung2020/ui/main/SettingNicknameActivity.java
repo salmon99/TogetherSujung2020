@@ -17,11 +17,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class SettingNicknameActivity extends AppCompatActivity {
 
     private static final String TAG = "SettingNicknameActivity";
     ImageButton mBack;
+    private FirebaseUser firebaseUser;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +37,20 @@ public class SettingNicknameActivity extends AppCompatActivity {
 
         mBack = findViewById(R.id.imageButton1);
 
-        //닉네임변경 . .. 데베 불러오자. . . .~
-
+        //현재 로그인한 사용자 불러오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+            //String sungbok = r_btn1.getText().toString().trim();
+            //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
+            //HashMap<Object,String> hashMap = new HashMap<>();
+
+           // hashMap.put("location", sungbok);
+
+            //FirebaseDatabase database = FirebaseDatabase.getInstance();
+            //DatabaseReference reference = database.getReference("Users");
+
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setDisplayName("Jane Q. User")
                 .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
                 .build();

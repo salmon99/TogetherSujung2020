@@ -22,6 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
     //private FirebaseAuth mFirebaseAuth;
     //private DatabaseReference firebaseDatabase;
 
@@ -48,6 +49,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         //현재 로그인한 사용자 가져오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
         if (user != null) {
             // User is signed in
 
