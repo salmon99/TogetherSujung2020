@@ -3,20 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal">
+    <TextView
+    android:id="@+id/notice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="공지사항"
+        android:layout_margin="15dp"
+    android:textColor="#000000" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="351dp"
+        android:layout_height="262dp"
+        android:background="@drawable/line"
+        android:layout_gravity="center_horizontal"
+       />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+    <Button
+    android:id="@+id/free_board"
+    android:layout_width="100dp"
+    android:layout_height="100sp"
+    android:drawableStart="@drawable/free1"
+        android:layout_margin="15dp"
+    android:drawablePadding="-30dp"
+    android:background="@drawable/imgbtn_states"
+    android:drawableLeft="@drawable/free1" />
+    <Button
+    android:id="@+id/info_board"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+        android:layout_margin="15dp"
+    android:drawableStart="@drawable/info"
+    android:drawablePadding="-30dp"
+    android:background="@drawable/imgbtn_states"
+    android:drawableLeft="@drawable/info"/>
+    <Button
+    android:id="@+id/housing_board"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+        android:layout_margin="15dp"
+    android:drawableStart="@drawable/housing"
+    android:drawablePadding="-30dp"
+    android:background="@drawable/imgbtn_states"
+    android:drawableLeft="@drawable/housing"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
     <Button
         android:id="@+id/help_board"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginLeft="276dp"
-        android:layout_marginTop="468dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
         android:drawableStart="@drawable/help"
         android:drawablePadding="-30dp"
         android:background="@drawable/imgbtn_states"
@@ -26,117 +87,26 @@
         android:id="@+id/tting_board"
         android:layout_width="100dp"
         android:layout_height="100sp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="468dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginRight="276dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:drawableStart="@drawable/tting"
+        android:layout_margin="15dp"
         android:drawablePadding="-30dp"
         android:background="@drawable/imgbtn_states"
         android:drawableLeft="@drawable/tting"/>
 
     <Button
-        android:id="@+id/free_board"
-        android:layout_width="100dp"
-        android:layout_height="100sp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginRight="276dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableStart="@drawable/free1"
-        android:drawablePadding="-30dp"
-        android:background="@drawable/imgbtn_states"
-        android:drawableLeft="@drawable/free1" />
-
-    <Button
-        android:id="@+id/info_board"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginRight="156dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableStart="@drawable/info"
-        android:drawablePadding="-30dp"
-        android:background="@drawable/imgbtn_states"
-        android:drawableLeft="@drawable/info"/>
-
-    <Button
         android:id="@+id/trading_board"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="468dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginRight="156dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:drawableStart="@drawable/trade"
+        android:layout_margin="15dp"
         android:drawablePadding="-30dp"
         android:background="@drawable/imgbtn_states"
         android:drawableLeft="@drawable/trade"/>
 
-    <Button
-        android:id="@+id/housing_board"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginLeft="276dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableStart="@drawable/housing"
-        android:drawablePadding="-30dp"
-        android:background="@drawable/imgbtn_states"
-        android:drawableLeft="@drawable/housing"/>
 
-    <TextView
-        android:id="@+id/notice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="16dp"
-        android:text="공지사항"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
 
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recyclerView"
-      android:layout_width="351dp"
-      android:layout_height="262dp"
-      android:layout_marginStart="27dp"
-      android:layout_marginLeft="27dp"
-      android:layout_marginTop="48dp"
-      android:layout_marginEnd="27dp"
-      android:layout_marginRight="27dp"
-      android:background="@drawable/line"
-      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
