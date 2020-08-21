@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -16,9 +18,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 
 import com.example.togethersujung2020.R;
+import com.example.togethersujung2020.ui.freeBoard.FreeBoard;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -31,9 +40,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //뒤로가기 버튼
 
-        changeView(0);
+        final TextView loc = (TextView) findViewById(R.id.profileplace);
+        final TextView name = (TextView) findViewById(R.id.profilename);
+        final TextView email = (TextView) findViewById(R.id.profile_email);
 
         TabLayout tab = findViewById(R.id.profile_tab);
+
+        tab.post(new Runnable() {
+            @Override
+            public void run() {
+                fragmentTransaction = fragmentManager.beginTransaction();
+            }
+        });
+
         tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -50,21 +69,31 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 // do nothing
             }
         });
+
         //사용자 정보 가져오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            //Uri photoUrl = user.getPhotoUrl();
+           // String name1 = user.getDisplayName();
+            String email1 = user.getEmail();
+            String uid = user.getUid();
 
-            // Check if user's email is verified
             boolean emailVerified = user.isEmailVerified();
 
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
+            final DatabaseReference database= FirebaseDatabase.getInstance().getReference();
+            database.child("Users").child(uid).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String location = dataSnapshot.child("location").getValue(String.class);
+                    String name2 = dataSnapshot.child("nickname").getValue(String.class);
+                    loc.setText(location);
+                    name.setText(name2);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            email.setText(email1);
         }
     }
 
