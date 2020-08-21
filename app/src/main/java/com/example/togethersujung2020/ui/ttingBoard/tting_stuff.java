@@ -1,15 +1,11 @@
 package com.example.togethersujung2020.ui.ttingBoard;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.togethersujung2020.R;
-import com.example.togethersujung2020.ui.ttingBoard.dummy.DummyContent;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -117,7 +112,7 @@ public class tting_stuff extends Fragment {
             }
         });
 
-        Button free_board1 = (Button) view.findViewById(R.id.button);
+        Button free_board1 = (Button) view.findViewById(R.id.signinbutton1);
         free_board1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {

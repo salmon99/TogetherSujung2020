@@ -15,25 +15,25 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="75dp"
             android:layout_marginTop="200dp"
-            android:text="버튼을 눌러 지역을 변경하세요. "
+            android:text="원하는 지역을 작성하세요. "
             android:textColor="#000000"
             android:textSize="24sp" />
 
-        <Switch
-            android:id="@+id/switch1"
+        <EditText
+            android:id="@+id/editTextTextLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="100dp"
-            android:text="성북구? "
-            android:textOff="강북구"
-            android:textOn="성북구" />
+            android:ems="10"
+            android:hint="\t\t\t\t\t\t강북구/성북구"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonChange2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="130dp"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="320dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="150dp"
             android:layout_marginRight="40dp"
             app:srcCompat="?attr/actionModeCloseDrawable" />
 

@@ -1,19 +1,13 @@
 package com.example.togethersujung2020.ui.freeBoard;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
 import com.example.togethersujung2020.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -46,7 +40,7 @@ public class FreeListViewAdapter extends BaseAdapter {
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1);
-        TextView descTextView = (TextView) convertView.findViewById(R.id.textView2);
+        TextView descTextView = (TextView) convertView.findViewById(R.id.textView25);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         FreeListViewItem listViewItem = listViewItemList.get(position);

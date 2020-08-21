@@ -64,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //intent함수를 통해 register액티비티 함수를 호출한다.
-                    startActivity(new Intent(SettingsActivity.this, SettingNicknameActivity.class));
+                    startActivity(new Intent(SettingsActivity.this, SettingLocationActivity.class));
                 }
             });
 
